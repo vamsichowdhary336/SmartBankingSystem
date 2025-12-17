@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Statement</title>
+  <link rel="stylesheet" href="statement.css">
+</head>
+<body>
+
+  <div class="statement-box">
+    <h2>Account Statement</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount (₹)</th>
+          <th>Date</th>
+          <th>Balance (₹)</th>
+        </tr>
+      </thead>
+      <tbody id="statementBody">
+        <!-- Data from JS -->
+      </tbody>
+    </table>
+
+    <button class="back-btn" onclick="goBack()">⬅ Back to Dashboard</button>
+  </div>
+
+  <script src="statement.js"></script>
+</body>
+</html>

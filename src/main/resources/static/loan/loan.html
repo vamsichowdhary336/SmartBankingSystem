@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply Loan</title>
+  <link rel="stylesheet" href="loan.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h2>Apply for Loan</h2>
+
+      <form id="loanForm">
+        <input
+          type="number"
+          id="amount"
+          placeholder="Enter loan amount"
+          required
+        />
+
+        <button type="submit" class="btn primary">
+          Apply Loan
+        </button>
+      </form>
+
+      <button class="btn secondary" onclick="goBack()">
+        Back to Dashboard
+      </button>
+
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <script src="loan.js"></script>
+</body>
+</html>

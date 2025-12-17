@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #eaf1ff, #f7f9fc);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main card */
+.login-container {
+  background: #ffffff;
+  width: 380px;
+  padding: 36px 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* Title */
+.login-container h2 {
+  margin-bottom: 28px;
+  color: #1f3c88;
+  font-weight: 700;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #cfd6e4;
+  font-size: 15px;
+}
+
+.login-container input::placeholder {
+  color: #8a94a6;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #3578e5;
+  box-shadow: 0 0 0 2px rgba(53, 120, 229, 0.15);
+}
+
+/* Password wrapper */
+.password-box {
+  position: relative;
+}
+
+/* Password input with space for eye */
+.password-box input {
+  padding: 12px 48px 12px 12px;
+}
+
+/* Eye icon – PERFECT CENTER (FINAL FIX) */
+.password-box .toggle {
+  position: absolute;
+  inset: 0 14px 0 auto;   /* centers vertically */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+
+.password-box .toggle:hover {
+  color: #3578e5;
+}
+
+/* Login button */
+.login-container button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 6px;
+  background: #3578e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #2c65c8;
+}
+
+/* Register text */
+.register-text {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #3578e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Login message */
+#msg {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h2>Create Account</h2>
+
+    <form id="registerForm">
+
+      <input type="text" id="fullName" placeholder="Full Name" required>
+
+      <input type="email" id="email" placeholder="Email" required>
+
+      <!-- Password field with eye + inline hint -->
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁</span>
+
+        <!-- INLINE tooltip (like image 2) -->
+        <div class="password-hint">
+          Minimum 8 characters with 1 uppercase, 1 number and 1 symbol
+        </div>
+      </div>
+
+      <!-- Error message -->
+      <small id="passwordError" class="error"></small>
+
+      <input type="text" id="mobile" placeholder="Mobile" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+<script src="register.js"></script>
+</body>
+</html>

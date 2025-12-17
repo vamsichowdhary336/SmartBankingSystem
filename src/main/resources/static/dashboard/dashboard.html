@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Bank Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <h2>Dashboard</h2>
+
+    <!-- User Details -->
+    <div class="user-card">
+      <p><b>Full Name:</b> <span id="fullName"></span></p>
+      <p><b>Email:</b> <span id="email"></span></p>
+      <p><b>Mobile:</b> <span id="mobile"></span></p>
+      <p><b>Account No:</b> <span id="accountNumber"></span></p>
+      <p><b>Balance:</b> ₹<span id="balance"></span></p>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button onclick="goTo('statement')">Statement</button>
+      <button onclick="goTo('transfer')">Transfer</button>
+      <button onclick="goTo('loan')">Loan</button>
+    </div>
+
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Money Transfer</title>
+  <link rel="stylesheet" href="transfer.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h2>Money Transfer</h2>
+
+      <input type="text" id="toAccount" placeholder="To Account Number" />
+      <input type="number" id="amount" placeholder="Amount" />
+
+      <button class="btn primary" onclick="transfer()">Transfer</button>
+      <button class="btn secondary" onclick="goBack()">Back to Dashboard</button>
+
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <script src="transfer.js"></script>
+</body>
+</html>
