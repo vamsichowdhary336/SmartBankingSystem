@@ -18,45 +18,53 @@ public class AccountService {
 
 	@Autowired
 	private AccountRepo accRepo;
+
 	@Autowired
 	private TransactionRepo txRepo;
 
-	public Optional<Account> findByAccountNumber(String accNo) {
-		return accRepo.findByAccountNumber(accNo);
-	}
-
-	public Optional<Account> findById(Long id) {
-		return accRepo.findById(id);
-	}
-
 	@Transactional
 	public boolean transfer(Account from, Account to, BigDecimal amount) {
-		if (from.getBalance().compareTo(amount) < 0)
+
+		if (from.getBalance().compareTo(amount) < 0) {
 			return false;
+		}
+
+		// 1️ Update balances
 		from.setBalance(from.getBalance().subtract(amount));
 		to.setBalance(to.getBalance().add(amount));
+
 		accRepo.save(from);
 		accRepo.save(to);
 
-		Transaction t1 = new Transaction();
-		t1.setAccount(from);
-		t1.setAmount(amount);
-		t1.setType("DEBIT");
-		t1.setRemark("Transfer to " + to.getAccountNumber());
-		txRepo.save(t1);
+		// 2️ DEBIT transaction
+		txRepo.save(
+				createTransaction(from, amount, "DEBIT", "Transfer to " + to.getAccountNumber(), from.getBalance()));
 
-		Transaction t2 = new Transaction();
-		t2.setAccount(to);
-		t2.setAmount(amount);
-		t2.setType("CREDIT");
-		t2.setRemark("Transfer from " + from.getAccountNumber());
-		txRepo.save(t2);
+		// 3️ CREDIT transaction
+		txRepo.save(
+				createTransaction(to, amount, "CREDIT", "Transfer from " + from.getAccountNumber(), to.getBalance()));
 
 		return true;
 	}
 
+	// Centralized transaction creation (prevents future mistakes)
+	private Transaction createTransaction(Account account, BigDecimal amount, String type, String remark,
+			BigDecimal balanceAfter) {
+		Transaction tx = new Transaction();
+		tx.setAccount(account);
+		tx.setAmount(amount);
+		tx.setType(type);
+		tx.setRemark(remark);
+		tx.setBalanceAfter(balanceAfter);
+		return tx;
+	}
+
+	// Statement always returns transaction data
 	public List<Transaction> getMiniStatement(Long accountId) {
 		return txRepo.findByAccountIdOrderByCreatedAtDesc(accountId);
 	}
 
+	public Optional<Account> findByAccountNumber(String accNo) {
+		return accRepo.findByAccountNumber(accNo);
+	}
 }

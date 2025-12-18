@@ -90,7 +90,7 @@ public class AccountController {
 		Account account = user.getAccount();
 
 		return ResponseEntity.ok(accService.getMiniStatement(account.getId()).stream()
-				.map(t -> new TransactionResponse(t.getType(), t.getAmount(), t.getCreatedAt(), account.getBalance()
+				.map(t -> new TransactionResponse(t.getType(), t.getAmount(), t.getCreatedAt(), t.getBalanceAfter()
 
 				)).toList());
 	}
