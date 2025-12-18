@@ -20,8 +20,12 @@ public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String type; // CREDIT / DEBIT
 	private BigDecimal amount;
+
+	private BigDecimal balanceAfter;
+
 	private LocalDateTime createdAt = LocalDateTime.now();
 	private String remark;
 
